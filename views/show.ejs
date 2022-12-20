@@ -41,11 +41,17 @@
 							<br />
 							Quanity in Stock: <%= Product.qty%></p>
 						  <div class="d-flex justify-content-between align-items-center">
+							
 							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">BUY</button>
+							</div>
+
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary"><a href="/products/<%=Product._id%>/edit">Edit this product</a></button>
+								
 								<form action="/products/<%= Product._id %>?_method=DELETE" method="POST">
-									<input type="submit" value="DELETE" />
+									<input type="submit" value="DELETE" class="btn btn-sm btn-outline-secondary"/>
 								</form>
-							  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/products/<%= Product._id %>edit">Edit this product</a></button>
 							</div>
 						 </div>
 					  </div>
