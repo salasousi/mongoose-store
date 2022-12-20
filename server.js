@@ -69,8 +69,7 @@ app.put("/products/:id", (req, res) =>{
 
 ////C
 app.post('/products', (req, res) => {
-	res.send(req.body);
-
+	
     Product.create(req.body, (error, createdProduct) =>{
         res.redirect("/products")
     })
