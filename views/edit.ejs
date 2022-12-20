@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product List</title>
+		<link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,500" rel="stylesheet">
+	</head>
+	<body>
+		<h1>Edit Page</h1>
+		<form class="row g-3" action="products/<%=index%>?_method=PUT" method="POST">
+			<div class="mb-3">
+			Name: <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="<%=product.name%>"/>
+			</div>
+			<div class="mb-3">
+			Description: <input type="text" class="form-control" id="formGroupExampleInput" name="description" value="<%=product.description%>" /><br />
+			</div>
+			<div class="mb-3">
+			Image: <input type="text" class="form-control" id="formGroupExampleInput" name="img" value="<%=product.img%>"/><br />
+            </div>
+			<div class="mb-3">
+			Price: <input type="text" class="form-control" id="formGroupExampleInput" name="price" value="<%=product.price%>"/><br />
+            </div>
+			<div class="mb-3">
+			Quanity: <input type="text" class="form-control" id="formGroupExampleInput" name="qty" value="<%=product.qty%>"/><br />
+			</div>
+			<div class="mb-3">
+			<input type="submit" class="form-control" id="formGroupExampleInput" name="" value="Submit Changes" />
+			</div>
+		</form>
+	</body>
+	</body>
+</html>

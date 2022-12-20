@@ -1,0 +1,33 @@
+:root {
+  --bright-orange: #F18963;
+  --light-orange: #f5ac91;
+  --bright-green: #A0BE73;
+  --light-green: #c6d8ab;
+  --purple: #B67D9A;
+}
+
+/* GENERAL */
+body {
+  background: #e9e9e9;
+  font-family: helvetica;
+}
+
+/* CONTAINERS */
+.container {
+  width: 80vw;
+  height: 70vw;
+  margin: 50px auto;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #ddd,
+              -1px -1px 10px #ddd,
+              1px -1px 10px #ddd,
+              -1px 1px 10px #ddd;
+}
+
+h1 {
+  font-family: 'Oswald';
+  font-weight: 500;
+  color: var(--bright-orange);
+  border-bottom: 2px solid var(--bright-green);
+}

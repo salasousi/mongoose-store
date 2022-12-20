@@ -3,6 +3,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 require('dotenv').config();
 const Product = require("./models/products")
+const methodOverride = require("method-override")
 
 //// INITIALIZE THE EXPRESS APP
 const app = express()
@@ -25,8 +26,10 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 //// MOUNT MIDDLEWARE
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride("_method"))
 
 ////MOUNT ROUTES
+
 
 ////I
 app.get("/products", (req, res) =>{
@@ -43,8 +46,22 @@ app.get("/products/new", (req, res) => {
 })
 
 ////D
+app.delete("/products/:id", (req, res) => {
+    Product.findByIdAndDelete(req.params.id, (error, Product) => {
+        res.redirect("/products")
+    })
+  })
 
 ////U
+app.put("/products/:id", (req, res) =>{
+    Product.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+    })
+ },
+    (error, updatedProduct)=>{
+         res.redirect(`/products/${req.params.id}`)
+}
+)
 
 ////C
 app.post('/products', (req, res) => {
@@ -56,9 +73,24 @@ app.post('/products', (req, res) => {
 });
 
 ////E
+app.get("products/:id/edit", (req, res) =>{
+    res.render(
+        "edit.ejs",
+        {
+            product: Product[req.params.id],
+            index: req.params.id,
+        }
+    )
+  })
 
 ////S
-
+app.get("/products/:id", (req, res) => {
+    Product.findById(req.params.id, (error, foundProduct)=>{
+        res.render("show.ejs", {
+            Product: foundProduct,
+        })
+    })
+})
 
 
 app.listen(port, () => {
