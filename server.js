@@ -67,6 +67,16 @@ app.put("/products/:id", (req, res) =>{
 )
 })
 
+app.put("products/:id/buy", (req, res) =>{
+    Product.findByIdAndUpdate(req.params.id, (error, Product) =>{
+            Product.qty -= 1
+            Product.save()
+            res.redirect(`/products/${req.params.id}`)
+        })
+    })
+
+
+
 ////C
 app.post('/products', (req, res) => {
 	
