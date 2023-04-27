@@ -34,5 +34,7 @@
     <li>These views should render forms and submit to the appropriate routes</li>
   </ul>
 </ul>
+<h2>Screenshot</h2>
+![Screen Shot 2023-04-27 at 4 09 26 PM](https://user-images.githubusercontent.com/102608394/234979486-8baf556d-3ea9-44b4-99cb-384e70a0a136.png)
 
 
